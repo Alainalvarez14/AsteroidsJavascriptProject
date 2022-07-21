@@ -13,7 +13,7 @@ class Spaceship {
         this.speed = 2;
         this.changeOnX = 0;
         this.changeOnY = 0;
-        this.angle = 1;
+        this.angle = 0;
         this.spaceShip = new Image();
         this.spaceShip.src = 'src/images/SpaceShipSmall.png';
     }

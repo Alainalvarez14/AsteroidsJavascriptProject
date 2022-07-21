@@ -31,7 +31,6 @@ class Asteroids {
         if (this.randomNum === 3) {
             return Math.random() * (1000 - 950) + 950; // if y can start anywhere, x must be positive to start from the right
         }
-
     }
 
     randomY() {
@@ -77,8 +76,6 @@ class Asteroids {
     }
 
     update() {
-        // this.x += this.changeOnX;
-        // this.y += this.changeOnY;
         if (this.randomNum === 0) {
             this.x += this.changeOnX;
             this.y += this.changeOnY;
