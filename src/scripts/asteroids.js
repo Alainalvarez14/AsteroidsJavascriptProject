@@ -1,15 +1,15 @@
 class Asteroids {
     constructor(dimensions) {
         this.dimensions = dimensions;
-        // this.canvas = canvas;
-        // this.x = Math.random() * canvas.width;
-        // this.y = Math.random() * canvas.height;
         this.randomNum = this.randomOption();
         this.x = this.randomX()
         this.y = this.randomY()
         this.radius = Math.random() + 20;
-        this.changeOnX = Math.random() * 3;
-        this.changeOnY = Math.random() * 3;
+        this.changeOnX = Math.random() * 2;
+        this.changeOnY = Math.random() * 2;
+        this.angle = 0;
+        this.asteroid = new Image();
+        this.asteroid.src = 'src/images/Asteroid.png'
     }
 
     randomOption() {
@@ -46,33 +46,14 @@ class Asteroids {
         if (this.randomNum === 3) {
             return Math.random() * (700 - 0) + 0;
         }
-
     }
 
-    randomDirection() {
-        if (this.randomNum === 0) {
-            this.x += this.changeOnX;
-            this.y += this.changeOnY;
-        }
-        if (this.randomNum === 1) {
-            this.x -= this.changeOnX;
-            this.y -= this.changeOnY;
-        }
-        if (this.randomNum === 2) {
-            this.x += this.changeOnX;
-            this.y -= this.changeOnY;
-        }
-        if (this.randomNum === 2) {
-            this.x -= this.changeOnX;
-            this.y += this.changeOnY;
-        }
-    }
-
-    fillCircle(ctx) {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'black';
-        ctx.fill();
+    drawAsteroids(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle * Math.PI / 180);
+        ctx.drawImage(this.asteroid, 0 - 108 / 2, 0 - 81 / 2);
+        ctx.restore();
     }
 
     update() {
@@ -88,15 +69,16 @@ class Asteroids {
             this.x += this.changeOnX;
             this.y -= this.changeOnY;
         }
-        if (this.randomNum === 2) {
+        if (this.randomNum === 3) {
             this.x -= this.changeOnX;
             this.y += this.changeOnY;
         }
     }
 
     animate(ctx) {
-        this.fillCircle(ctx);
+        this.drawAsteroids(ctx);
         this.update();
+        this.angle++;
     }
 }
 

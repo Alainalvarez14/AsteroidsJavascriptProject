@@ -1,3 +1,5 @@
+import Lasers from "./lasers";
+
 class Spaceship {
 
     constructor(dimensions, canvas) {
@@ -5,6 +7,8 @@ class Spaceship {
         this.canvas = canvas;
         this.x = 300;
         this.y = 300;
+        this.lasersArr = [];
+        this.newLaser = false;
         //Why do i need a height and width here??
         this.width = 80;
         this.height = 68;
@@ -13,6 +17,7 @@ class Spaceship {
         this.speed = 2;
         this.changeOnX = 0;
         this.changeOnY = 0;
+        this.frames = 0;
         this.angle = 0;
         this.spaceShip = new Image();
         this.spaceShip.src = 'src/images/SpaceShipSmall.png';
@@ -21,15 +26,10 @@ class Spaceship {
     rotateShip(ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
-        ctx.rotate(this.angle * Math.PI / 360);
-        // ctx.drawImage(this.spaceShip, 0, 0, 0 - 100 / 2, 0 - 68 / 2);
+        ctx.rotate(this.angle * Math.PI / 180);
         ctx.drawImage(this.spaceShip, 0 - 100 / 2, 0 - 68 / 2);
         ctx.restore();
     }
-
-    // clear(ctx) {
-    //     ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    // }
 
     newPosition() {
         this.x += this.changeOnX;
@@ -37,13 +37,22 @@ class Spaceship {
         this.detectWalls();
     }
 
+    createLasers(ctx) {
+        if (this.newLaser) {
+            let laser = new Lasers(this.dimensions, this.x, this.y, this.angle);
+            this.lasersArr.push(laser);
+        }
+
+        for (let i = 0; i < this.lasersArr.length; i++) {
+            this.lasersArr[i].animate(ctx);
+        }
+    }
+
     detectWalls() {
-        if (this.y + this.height / 2 > this.canvas.height) { //////why > and not <
-            // this.y = this.canvas.height - this.height;
+        if (this.y + this.height / 2 > this.canvas.height) {
             this.y = this.canvas.height - this.height / 2;
         }
         if (this.x + this.width / 2 > this.canvas.width) {
-            // this.x = this.canvas.width - this.width;
             this.x = this.canvas.width - this.width / 2;
         }
         if (this.x - this.width / 2 < 0) {
@@ -61,26 +70,26 @@ class Spaceship {
         }
         if (e.key === 'ArrowRight' || e.key === 'Right') {
             e.preventDefault();
-            // this.heroMoveRight();
             this.changeOnX = this.speed;
         }
         if (e.key === 'ArrowLeft' || e.key === 'Left') {
             e.preventDefault();
-            // this.heroMoveLeft();
             this.changeOnX = -this.speed;
         }
         if (e.key === 'ArrowUp' || e.key === 'Up') {
             e.preventDefault();
-            // this.heroMoveUp();
             this.changeOnY = -this.speed;
         }
         if (e.key === "r") {
-            // this.rotateRight();
+            e.preventDefault();
             this.angle += 15;
         }
         if (e.key === "l") {
-            // this.rotateLeft();
+            e.preventDefault();
             this.angle -= 15;
+        }
+        if (e.key === ' ' || e.code === 'Space' || e.which === '32' || e.key === 'Spacebar' || e.key === 'space' || e.key === 'Space') {
+            this.newLaser = true;
         }
     }
 
@@ -89,12 +98,17 @@ class Spaceship {
             this.changeOnX = 0;
             this.changeOnY = 0;
         }
+
+        if (e.key === 'SpaceBar' || e.key === 'space' || e.key === 'Space' || e.key === ' ') {
+            this.newLaser = false;
+        }
     }
 
     animate(ctx) {
-        // this.clear(ctx);
         this.rotateShip(ctx);
         this.newPosition();
+        this.createLasers(ctx);
+        this.frames++;
     }
 }
 

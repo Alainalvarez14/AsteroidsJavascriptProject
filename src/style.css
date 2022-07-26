@@ -1,8 +1,8 @@
 #canvas {
-    background-color: steelblue;
+    background-color: black;
     height: 700px;
     width: 900px;
-
+    border-radius: 20px;
 }
 
 body {

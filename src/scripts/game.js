@@ -8,7 +8,6 @@ class Game {
         this.ctx = canvas.getContext('2d');
         this.dimensions = { width: this.canvas.width, height: this.canvas.height };
         this.spaceShip = new Spaceship(this.dimensions, this.canvas);
-        this.laser = new Lasers(this.dimensions, this.spaceShip);
         this.frames = 0;
         this.asteroidArr = [];
         this.startGame();
@@ -46,7 +45,6 @@ class Game {
         this.ctx.clearRect(0, 0, this.dimensions.width, this.dimensions.height);
         this.asteroidMultiplier();
         this.spaceShip.animate(this.ctx);
-        this.laser.animate(this.ctx);
         this.frames++;
         requestAnimationFrame(this.animate.bind(this));
     }
