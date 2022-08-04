@@ -5,9 +5,11 @@ class Asteroids {
         this.x = this.randomX()
         this.y = this.randomY()
         this.radius = Math.random() + 20;
-        this.changeOnX = Math.random() * 2;
-        this.changeOnY = Math.random() * 2;
+        this.changeOnX = Math.random() * 1;
+        this.changeOnY = Math.random() * 1;
         this.angle = 0;
+        this.circleRadius = 23;
+        this.circleAsteroid = { x: this.x, y: this.y, radius: this.circleRadius }
         this.asteroid = new Image();
         this.asteroid.src = 'src/images/Asteroid.png'
     }
@@ -56,6 +58,14 @@ class Asteroids {
         ctx.restore();
     }
 
+    drawCircleAsteroid(ctx) {
+        // let circleAsteroid = { x: this.x, y: this.y, radius: this.circleRadius }
+        ctx.strokeStyle = 'transparent'
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.circleRadius, this.angle, Math.PI * 2);
+        ctx.stroke();
+    }
+
     update() {
         if (this.randomNum === 0) {
             this.x += this.changeOnX;
@@ -76,6 +86,7 @@ class Asteroids {
     }
 
     animate(ctx) {
+        this.drawCircleAsteroid(ctx);
         this.drawAsteroids(ctx);
         this.update();
         this.angle++;

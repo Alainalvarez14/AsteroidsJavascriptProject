@@ -19,6 +19,8 @@ class Spaceship {
         this.changeOnY = 0;
         this.frames = 0;
         this.angle = 0;
+        this.circleRadius = 38
+        this.circleShip = { x: this.x, y: this.y, radius: this.circleRadius }
         this.spaceShip = new Image();
         this.spaceShip.src = 'src/images/SpaceShipSmall.png';
     }
@@ -41,11 +43,21 @@ class Spaceship {
         if (this.newLaser) {
             let laser = new Lasers(this.dimensions, this.x, this.y, this.angle);
             this.lasersArr.push(laser);
+            this.newLaser = false;
         }
 
         for (let i = 0; i < this.lasersArr.length; i++) {
             this.lasersArr[i].animate(ctx);
         }
+    }
+
+    drawCircleShip(ctx) {
+        // let circleShip = { x: this.x, y: this.y, radius: this.circleRadius }
+        ctx.strokeStyle = 'transparent'
+        ctx.lineWidth = '4'
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.circleRadius, this.angle, Math.PI * 2);
+        ctx.stroke();
     }
 
     detectWalls() {
@@ -106,6 +118,7 @@ class Spaceship {
 
     animate(ctx) {
         this.rotateShip(ctx);
+        this.drawCircleShip(ctx);
         this.newPosition();
         this.createLasers(ctx);
         this.frames++;

@@ -7,6 +7,8 @@ class Lasers {
         this.radius = 3;
         this.changeOnX = 5;
         this.changeOnY = 5;
+        this.circleRadius = 3;
+        this.circleLaser = { x: this.x, y: this.y, radius: this.circleRadius }
     }
 
     drawLasers(ctx) {
@@ -22,8 +24,17 @@ class Lasers {
         this.x += Math.cos(laserAngleRadians) * 5;
     }
 
+    drawCircleLaser(ctx) {
+        ctx.strokeStyle = 'transparent'
+        ctx.lineWidth = '3'
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.circleRadius, this.angle, Math.PI * 2);
+        ctx.stroke();
+    }
+
     animate(ctx) {
         this.drawLasers(ctx);
+        this.drawCircleLaser(ctx);
         this.moveUp();
     }
 

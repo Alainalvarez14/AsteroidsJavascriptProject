@@ -6,8 +6,108 @@
   height: 700px;
   width: 900px;
   border-radius: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 body {
   background-color: red;
+  overflow: hidden;
+}
+
+#introduction {
+  display: flex;
+  height: 100%;
+  width: 60%;
+  /* margin: 0 auto; */
+  background: url("../src/images/asteroidStart.jpg");
+  position: absolute;
+  height: 700px;
+  width: 900px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+}
+
+#scroll {
+  color: yellow;
+  text-align: justify;
+  height: 700px;
+  width: 900px;
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  font-size: 22px;
+  line-height: 1.5;
+  font-weight: bold;
+  position: absolute;
+  animation: scroll 100s linear forwards;
+}
+
+@keyframes scroll {
+  from {
+    top: 0;
+  }
+  to {
+    top: -7500px;
+  }
+}
+#startGame {
+  background: url("../src/images/asteroidStart.jpg");
+  color: blue;
+  position: absolute;
+  height: 700px;
+  width: 900px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  font-size: 50px;
+}
+
+#startButton {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid red;
+  height: 100px;
+  width: 300px;
+  border-radius: 20px;
+  font-size: 25px;
+  background-color: lightgray;
+  color: red;
+}
+
+#startTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
+}
+
+#count {
+  color: yellow;
+  font-size: 30px;
+  position: absolute;
+  top: 77%;
+  left: 72%;
+  display: none;
+}
+
+#gameOver {
+  background-color: lightgreen;
+  color: black;
+  position: absolute;
+  height: 700px;
+  width: 900px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  font-size: 50px;
+  display: none;
 }
