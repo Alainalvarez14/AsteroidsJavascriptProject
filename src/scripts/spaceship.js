@@ -53,7 +53,8 @@ class Spaceship {
 
     drawCircleShip(ctx) {
         // let circleShip = { x: this.x, y: this.y, radius: this.circleRadius }
-        ctx.strokeStyle = 'transparent'
+        // ctx.strokeStyle = 'transparent'
+        ctx.strokeStyle = 'red'
         ctx.lineWidth = '4'
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.circleRadius, this.angle, Math.PI * 2);

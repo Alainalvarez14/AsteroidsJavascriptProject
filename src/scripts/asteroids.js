@@ -4,7 +4,7 @@ class Asteroids {
         this.randomNum = this.randomOption();
         this.x = this.randomX()
         this.y = this.randomY()
-        this.radius = Math.random() + 20;
+        //this.radius = Math.random() + 20;
         this.changeOnX = Math.random() * 1;
         this.changeOnY = Math.random() * 1;
         this.angle = 0;
@@ -60,7 +60,8 @@ class Asteroids {
 
     drawCircleAsteroid(ctx) {
         // let circleAsteroid = { x: this.x, y: this.y, radius: this.circleRadius }
-        ctx.strokeStyle = 'transparent'
+        // ctx.strokeStyle = 'transparent'
+        ctx.strokeStyle = 'blue'
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.circleRadius, this.angle, Math.PI * 2);
         ctx.stroke();

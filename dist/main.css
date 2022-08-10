@@ -10,53 +10,74 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  display: none;
 }
 
+/* #canvas2 {
+    display: block;
+    background-color: red;
+    height: 700px;
+    width: 900px;
+    border-radius: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+} */
 body {
-  background-color: red;
-  overflow: hidden;
+  background: url("../src/images/asteroidStart.jpg");
+  /* background-color: red; */
+  /* overflow: hidden; */
 }
 
 #introduction {
-  display: flex;
-  height: 100%;
-  width: 60%;
+  /* display: flex; */
+  /* height: 100%;
+  width: 60%; */
   /* margin: 0 auto; */
-  background: url("../src/images/asteroidStart.jpg");
-  position: absolute;
+  /* background: url("../src/images/asteroidStart.jpg"); */
+  /* position: absolute;
+  height: -7000px;
+  width: 900px; 
+  top: 83%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px; */
+  background-color: black;
   height: 700px;
   width: 900px;
+  border-radius: 20px;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border-radius: 20px;
+  overflow-y: hidden;
 }
 
 #scroll {
   color: yellow;
   text-align: justify;
   height: 700px;
-  width: 900px;
-  /* top: 50%; */
-  /* left: 50%; */
-  /* transform: translate(-50%, -50%); */
+  width: 850px;
+  margin-left: 25px;
   font-size: 22px;
   line-height: 1.5;
   font-weight: bold;
   position: absolute;
-  animation: scroll 100s linear forwards;
+  animation: scroll 70s linear forwards;
 }
 
 @keyframes scroll {
   from {
-    top: 0;
+    top: 700px;
   }
   to {
     top: -7500px;
   }
 }
 #startGame {
-  background: url("../src/images/asteroidStart.jpg");
+  /* background: url("../src/images/asteroidStart.jpg"); */
+  background-color: black;
   color: blue;
   position: absolute;
   height: 700px;
@@ -66,6 +87,7 @@ body {
   transform: translate(-50%, -50%);
   border-radius: 20px;
   font-size: 50px;
+  /* display: none; */
 }
 
 #startButton {
@@ -80,13 +102,20 @@ body {
   font-size: 25px;
   background-color: lightgray;
   color: red;
+  display: none;
 }
 
 #startTitle {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
+  margin-top: 70px;
+  text-align: center;
+  display: block;
+  color: rgb(0, 255, 102);
+  font-size: 50px;
+  font-weight: bold;
+  font-family: sans-serif;
 }
 
 #count {

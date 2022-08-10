@@ -67,12 +67,25 @@ class Game {
                 let dy = this.asteroidArr[i].y - this.spaceShip.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
                 let sumRadius = this.asteroidArr[i].circleAsteroid.radius + this.spaceShip.circleShip.radius
+                //let sumRadius = 61;
 
-                if (sumRadius >= distance) {
-                    // this.asteroidArr.splice(i, 1);
-                    const endGame = document.getElementById('gameOver');
-                    endGame.style.display = "block";
-                    this.gameOver = true;
+                //asteroid 23
+                //spaceship 38 
+                
+
+                if ( distance <= -15 || 
+                     distance <= 15 ||
+                     distance < 61 ||
+                     distance === 61 ) {
+                        console.log(`distance ${distance}`);
+                        console.log(`sumRadius ${sumRadius}`);
+                        console.log(this.asteroidArr[i]);
+                        console.log(this.spaceShip.x);
+                        console.log(this.spaceShip.y);
+                    this.asteroidArr.splice(i, 1);
+                    // const endGame = document.getElementById('gameOver');
+                    // endGame.style.display = "block";
+                    // this.gameOver = true;
                 }
             }
         }

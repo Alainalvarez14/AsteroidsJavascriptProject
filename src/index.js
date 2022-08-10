@@ -6,9 +6,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('startButton');
     const count = document.getElementById('count');
     const introduction = document.getElementById('introduction');
+    const startTitle = document.getElementById('startTitle');
 
     setTimeout(() => {
         introduction.style.display = "none";
+        startGame.style.display = "block";
+        startButton.style.display = "block";
     }, 5000)
 
     startButton.addEventListener("click", e => {
