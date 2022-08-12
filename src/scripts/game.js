@@ -1,7 +1,6 @@
 import Asteroids from "./asteroids.js";
 import Spaceship from "./spaceship.js";
 
-
 class Game {
     constructor(canvas) {
         this.canvas = canvas;
@@ -17,6 +16,8 @@ class Game {
         this.gamePause = false;
         this.startGame();
         this.eventListeners();
+        this.counter = 0;
+        this.gameCount = 1;
     }
 
     startGame() {
@@ -33,14 +34,41 @@ class Game {
 
         if (e.key === "p") {
             // console.log("before" + this.gamePause);
-            this.gamePause = !this.gamePause;
+            // this.gamePause = !this.gamePause;
+            this.gamePause = true;
             // console.log("after" + this.gamePause);
+            const pausedText = document.getElementById('pausedText');
+            const restartButton = document.getElementById('restartButton');
+            const resumeGameButton = document.getElementById('resumeGameButton');
+            pausedText.style.display = "block";
+            restartButton.style.display = "block";
+            resumeGameButton.style.display = "block";
         }
+
+        resumeGameButton.addEventListener('click', e => {
+            pausedText.style.display = "none";
+            resumeGameButton.style.display = "none";
+            restartButton.style.display = "none";
+            // this.gamePause = !this.gamePause;
+            this.gamePause = false;
+        });
+
+        ///////im not sure if its restarting correctly, my console.log is wonky
+        restartButton.addEventListener('click', e => {
+            pausedText.style.display = "none";
+            resumeGameButton.style.display = "none";
+            restartButton.style.display = "none";
+            const canvas = document.getElementById('canvas');
+            this.gameCount++;
+            console.log(this.gameCount);
+            new Game(canvas);
+        });
     }
 
     keyUp(e) {
         this.spaceShip.keyUp(e);
     }
+
 
     asteroidMultiplier() {
         if (this.count > 0 && this.count % 10 === 0) {
@@ -54,6 +82,7 @@ class Game {
         if (this.frames % this.divisor === 0) {
             let asteroid = new Asteroids(this.dimensions);
             this.asteroidArr.push(asteroid);
+            console.log(asteroid)
         }
         for (let i = 0; i < this.asteroidArr.length; i++) {
             this.asteroidArr[i].animate(this.ctx);
@@ -66,26 +95,20 @@ class Game {
                 let dx = this.asteroidArr[i].x - this.spaceShip.x;
                 let dy = this.asteroidArr[i].y - this.spaceShip.y;
                 let distance = Math.sqrt(dx * dx + dy * dy);
-                let sumRadius = this.asteroidArr[i].circleAsteroid.radius + this.spaceShip.circleShip.radius
-                //let sumRadius = 61;
+                let sumRadius = this.asteroidArr[i].circleRadius + this.spaceShip.circleRadius
 
-                //asteroid 23
-                //spaceship 38 
-                
-
-                if ( distance <= -15 || 
-                     distance <= 15 ||
-                     distance < 61 ||
-                     distance === 61 ) {
-                        console.log(`distance ${distance}`);
-                        console.log(`sumRadius ${sumRadius}`);
-                        console.log(this.asteroidArr[i]);
-                        console.log(this.spaceShip.x);
-                        console.log(this.spaceShip.y);
+                if (sumRadius >= distance) {
+                    console.log(`distance ${distance}`);
+                    console.log(`sumRadius ${sumRadius}`);
+                    console.log(this.asteroidArr[i]);
+                    console.log(this.spaceShip.x);
+                    console.log(this.spaceShip.y);
                     this.asteroidArr.splice(i, 1);
-                    // const endGame = document.getElementById('gameOver');
-                    // endGame.style.display = "block";
-                    // this.gameOver = true;
+                    this.counter += 1;
+                    console.log(this.counter)
+                    const endGame = document.getElementById('gameOver');
+                    endGame.style.display = "block";
+                    this.gameOver = true;
                 }
             }
         }
@@ -98,7 +121,8 @@ class Game {
                     let dx = this.asteroidArr[i].x - this.spaceShip.lasersArr[j].x;
                     let dy = this.asteroidArr[i].y - this.spaceShip.lasersArr[j].y;
                     let distance = Math.sqrt(dx * dx + dy * dy);
-                    let sumRadius = this.asteroidArr[i].circleAsteroid.radius + this.spaceShip.lasersArr[j].circleLaser.radius
+                    // let sumRadius = this.asteroidArr[i].circleAsteroid.radius + this.spaceShip.lasersArr[j].circleLaser.radius
+                    let sumRadius = this.asteroidArr[i].circleRadius + this.spaceShip.lasersArr[j].circleRadius
 
                     if (sumRadius >= distance) {
                         // console.log(this.spaceShip.lasersArr);
@@ -115,7 +139,7 @@ class Game {
 
     count2() {
         let score = document.getElementById("count");
-        score.innerText = `Count: ${this.count}`;
+        score.innerText = `Score: ${this.count}`;
     }
 
     animate() {

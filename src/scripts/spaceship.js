@@ -9,18 +9,13 @@ class Spaceship {
         this.y = 300;
         this.lasersArr = [];
         this.newLaser = false;
-        //Why do i need a height and width here??
         this.width = 80;
         this.height = 68;
-        // Why do i need a speed?
-        // Also, How does the program know that speed is movement? it originally doesnt, its because we set the value of speed to the value of changeInX
         this.speed = 2;
         this.changeOnX = 0;
         this.changeOnY = 0;
-        this.frames = 0;
         this.angle = 0;
         this.circleRadius = 38
-        this.circleShip = { x: this.x, y: this.y, radius: this.circleRadius }
         this.spaceShip = new Image();
         this.spaceShip.src = 'src/images/SpaceShipSmall.png';
     }
@@ -51,15 +46,13 @@ class Spaceship {
         }
     }
 
-    drawCircleShip(ctx) {
-        // let circleShip = { x: this.x, y: this.y, radius: this.circleRadius }
-        // ctx.strokeStyle = 'transparent'
-        ctx.strokeStyle = 'red'
-        ctx.lineWidth = '4'
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.circleRadius, this.angle, Math.PI * 2);
-        ctx.stroke();
-    }
+    // drawCircleShip(ctx) {
+    //     ctx.strokeStyle = 'red'
+    //     ctx.lineWidth = '4'
+    //     ctx.beginPath();
+    //     ctx.arc(this.x, this.y, this.circleRadius, this.angle, Math.PI * 2);
+    //     ctx.stroke();
+    // }
 
     detectWalls() {
         if (this.y + this.height / 2 > this.canvas.height) {
@@ -119,10 +112,9 @@ class Spaceship {
 
     animate(ctx) {
         this.rotateShip(ctx);
-        this.drawCircleShip(ctx);
+        // this.drawCircleShip(ctx);
         this.newPosition();
         this.createLasers(ctx);
-        this.frames++;
     }
 }
 

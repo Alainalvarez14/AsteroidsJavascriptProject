@@ -6,17 +6,27 @@ document.addEventListener('DOMContentLoaded', () => {
     const startButton = document.getElementById('startButton');
     const count = document.getElementById('count');
     const introduction = document.getElementById('introduction');
-    const startTitle = document.getElementById('startTitle');
+    const playAgainButton = document.getElementById('playAgainButton');
+    const gameOver = document.getElementById('gameOver');
+    const instructions = document.getElementById('instructions');
 
     setTimeout(() => {
         introduction.style.display = "none";
         startGame.style.display = "block";
         startButton.style.display = "block";
+        instructions.style.display = "block";
     }, 5000)
 
     startButton.addEventListener("click", e => {
         startGame.style.display = "none";
         startButton.style.display = "none";
+        count.style.display = "block";
+        canvas.style.display = "block";
+        new Game(canvas);
+    });
+
+    playAgainButton.addEventListener('click', e => {
+        gameOver.style.display = "none";
         count.style.display = "block";
         canvas.style.display = "block";
         new Game(canvas);

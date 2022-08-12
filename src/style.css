@@ -23,9 +23,15 @@
 } */
 
 body {
-    background: url("../src/images/asteroidStart.jpg");
+    background-image: url("../src/images/asteroidStart.jpg");
+    /* background-repeat: no-repeat;
+    background-size: cover 100%; */
     /* background-color: red; */
     /* overflow: hidden; */
+
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 #introduction {
@@ -36,7 +42,7 @@ body {
     /* background: url("../src/images/asteroidStart.jpg"); */
     /* position: absolute;
     height: -7000px;
-    width: 900px; 
+    width: 900px;
     top: 83%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -51,7 +57,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: hidden;
-    
+
 }
 
 #scroll {
@@ -69,12 +75,39 @@ body {
 
 @keyframes scroll {
     from {
-       top: 700px;
+        top: 700px;
     }
 
     to {
         top: -7500px;
     }
+}
+
+#instructions {
+    background-color: rgba(68, 68, 65, 0.7);
+    border-radius: 20px;
+    /* width: 10%; */
+    height: 700px;
+    width: 15%;
+    margin-left: 30px;
+    margin-top: 200px;
+    display: none;
+    /* position: absolute; */
+    /* text-align: center; */
+}
+
+#instructions>h1 {
+    color: white;
+    /* font-weight: bold;
+    font-size: 20px; */
+    text-align: center;
+}
+
+#instructions>ul>li {
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    padding-top: 5px;
 }
 
 #startGame {
@@ -89,7 +122,7 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 20px;
     font-size: 50px;
-    /* display: none; */
+    display: none;
 }
 
 
@@ -130,9 +163,44 @@ body {
     display: none;
 }
 
+#pausedText {
+    display: none;
+    width: 200px;
+    height: 100px;
+    color: blue;
+    /* margin-left: 50%; */
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+
+}
+
+#restartButton {
+    display: none;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 60%;
+    left: 35%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
+#resumeGameButton {
+    display: none;
+    width: 200px;
+    height: 100px;
+    position: absolute;
+    top: 60%;
+    left: 65%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+}
+
 #gameOver {
-    background-color: lightgreen;
-    color: black;
+    background: url('../src/images/gameOver.jpg');
     position: absolute;
     height: 700px;
     width: 900px;
@@ -140,6 +208,49 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
-    font-size: 50px;
     display: none;
+}
+
+#gameOverText {
+    color: red;
+    white-space: nowrap;
+    font-weight: bold;
+    font-family: sans-serif;
+    text-align: center;
+    font-size: 100px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: blink 1.7s linear infinite;
+}
+
+@keyframes blink {
+
+    50% {
+        opacity: 0;
+    }
+
+    /* from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }  */
+}
+
+#playAgainButton {
+    position: absolute;
+    text-align: center;
+    width: 350px;
+    height: 100px;
+    border-radius: 20px;
+    top: 75%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    font-family: sans-serif;
+    font-weight: bold;
+    color: red;
 }
