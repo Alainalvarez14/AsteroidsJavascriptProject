@@ -8,46 +8,17 @@
     left: 50%;
     transform: translate(-50%, -50%);
     display: none;
+    box-shadow: rgba(255, 255, 255, 0.229) 0px 10px 15px;
 }
-
-/* #canvas2 {
-    display: block;
-    background-color: red;
-    height: 700px;
-    width: 900px;
-    border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-} */
 
 body {
     background-image: url("../src/images/asteroidStart.jpg");
-    /* background-repeat: no-repeat;
-    background-size: cover 100%; */
-    /* background-color: red; */
-    /* overflow: hidden; */
-
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
 }
 
 #introduction {
-    /* display: flex; */
-    /* height: 100%;
-    width: 60%; */
-    /* margin: 0 auto; */
-    /* background: url("../src/images/asteroidStart.jpg"); */
-    /* position: absolute;
-    height: -7000px;
-    width: 900px;
-    top: 83%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 20px; */
-
     background-color: black;
     height: 700px;
     width: 900px;
@@ -57,20 +28,20 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     overflow-y: hidden;
-
+    box-shadow: rgba(255, 255, 255, 0.229) 0px 10px 15px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #scroll {
-    color: yellow;
+    color: red;
     text-align: justify;
     height: 700px;
     width: 850px;
     margin-left: 25px;
     font-size: 22px;
     line-height: 1.5;
-    font-weight: bold;
     position: absolute;
-    animation: scroll 70s linear forwards;
+    animation: scroll 180s linear forwards;
 }
 
 @keyframes scroll {
@@ -84,36 +55,33 @@ body {
 }
 
 #instructions {
-    background-color: rgba(68, 68, 65, 0.7);
+    background-color: rgba(1, 1, 1, 0.5);
     border-radius: 20px;
-    /* width: 10%; */
-    height: 700px;
-    width: 15%;
-    margin-left: 30px;
+    height: 300px;
+    width: 300px;
+    margin-left: 20px;
     margin-top: 200px;
     display: none;
-    /* position: absolute; */
-    /* text-align: center; */
+    padding: 15px;
+    box-shadow: rgba(255, 255, 255, 0.229) 0px 10px 15px;
 }
 
 #instructions>h1 {
     color: white;
-    /* font-weight: bold;
-    font-size: 20px; */
     text-align: center;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #instructions>ul>li {
     color: white;
     font-weight: bold;
     font-size: 20px;
-    padding-top: 5px;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #startGame {
-    /* background: url("../src/images/asteroidStart.jpg"); */
     background-color: black;
-    color: blue;
+    /* color: blue; */
     position: absolute;
     height: 700px;
     width: 900px;
@@ -123,8 +91,8 @@ body {
     border-radius: 20px;
     font-size: 50px;
     display: none;
+    box-shadow: rgba(255, 255, 255, 0.229) 0px 10px 15px;
 }
-
 
 #startButton {
     position: absolute;
@@ -136,6 +104,8 @@ body {
     width: 300px;
     border-radius: 20px;
     font-size: 25px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bolder;
     background-color: lightgray;
     color: red;
     display: none;
@@ -148,32 +118,35 @@ body {
     margin-top: 70px;
     text-align: center;
     display: block;
-    color: rgb(0, 255, 102);
-    font-size: 50px;
+    color: red;
+    font-size: 70px;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: 'Orbitron', sans-serif;
+    /* font-weight: lighter; */
 }
 
 #count {
     color: yellow;
     font-size: 30px;
     position: absolute;
-    top: 77%;
-    left: 72%;
+    top: 80%;
+    left: 63%;
     display: none;
+    font-family: 'Orbitron', sans-serif;
 }
 
 #pausedText {
     display: none;
     width: 200px;
     height: 100px;
-    color: blue;
+    color: red;
     /* margin-left: 50%; */
     position: absolute;
     top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
+    font-family: 'Orbitron', sans-serif;
 
 }
 
@@ -183,9 +156,12 @@ body {
     height: 100px;
     position: absolute;
     top: 60%;
-    left: 35%;
+    left: 38%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    color: red;
 }
 
 #resumeGameButton {
@@ -194,13 +170,18 @@ body {
     height: 100px;
     position: absolute;
     top: 60%;
-    left: 65%;
+    left: 63%;
     transform: translate(-50%, -50%);
     border-radius: 20px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+    color: red;
 }
 
 #gameOver {
-    background: url('../src/images/gameOver.jpg');
+    background: url('../src/images/asteroidHitsEarth.gif');
+    background-size: cover;
+    background-repeat: no-repeat;
     position: absolute;
     height: 700px;
     width: 900px;
@@ -209,20 +190,21 @@ body {
     transform: translate(-50%, -50%);
     border-radius: 20px;
     display: none;
+    box-shadow: rgba(255, 255, 255, 0.229) 0px 10px 15px;
 }
 
 #gameOverText {
     color: red;
     white-space: nowrap;
     font-weight: bold;
-    font-family: sans-serif;
+    font-family: 'Orbitron', sans-serif;
     text-align: center;
     font-size: 100px;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    animation: blink 1.7s linear infinite;
+    animation: blink 2s linear infinite;
 }
 
 @keyframes blink {
@@ -237,7 +219,7 @@ body {
 
     to {
         opacity: 1;
-    }  */
+    } */
 }
 
 #playAgainButton {
@@ -250,7 +232,177 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 50px;
-    font-family: sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: bold;
     color: red;
+    background-color: lightgray;
+}
+
+#gitHub {
+    height: 50px;
+    width: 50px;
+    opacity: 1;
+    background-color: white;
+    border-radius: 30px;
+    margin: 15px 5px 15px 15px;
+}
+
+#linkedIn {
+    height: 50px;
+    width: 60px;
+    padding: 5px;
+    margin: 15px 15px 15px 5px;
+}
+
+#logoSection {
+    display: flex;
+    background-color: black;
+    border-radius: 20px;
+    height: 60px;
+    width: 150px;
+    box-shadow: rgba(255, 255, 255, 0.229) 0px 10px 15px;
+    margin-top: 100px;
+    margin-left: 70px;
+    justify-content: center;
+    align-items: center;
+}
+
+@media (min-width: 1350px) and (max-width: 1650px) {
+
+    #instructions {
+        height: 230px;
+        width: 580px;
+        padding: 0px;
+        position: absolute;
+        top: 73%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #instructions>ul>li {
+        padding-top: 2px;
+    }
+
+    #count {
+        font-size: 25px;
+        position: absolute;
+        top: 80%;
+        left: 73%;
+        display: none;
+    }
+
+    #logoSection {
+        position: absolute;
+        bottom: 6%;
+        margin-left: 15%
+    }
+}
+
+@media (min-width: 1250px) and (max-width: 1349px) {
+
+    #instructions {
+        height: 200px;
+        width: 580px;
+        padding: 0px;
+        position: absolute;
+        top: 73%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #instructions>ul>li {
+        font-size: 15px;
+        padding-top: 2px;
+    }
+
+    #instructions>h1 {
+        font-size: 30px;
+    }
+
+    #count {
+        font-size: 25px;
+        color: yellow;
+        position: absolute;
+        top: 80%;
+        left: 76%;
+        display: none;
+    }
+
+    #logoSection {
+        position: absolute;
+        bottom: 6%;
+        margin-left: 15%
+    }
+}
+
+@media (min-width: 1000px) and (max-width: 1249px) {
+    #instructions {
+        height: 200px;
+        width: 580px;
+        padding: 0px;
+        position: absolute;
+        top: 73%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #instructions>ul>li {
+        font-size: 15px;
+        padding-top: 2px;
+    }
+
+    #instructions>h1 {
+        font-size: 30px;
+    }
+
+    #count {
+        font-size: 25px;
+        color: yellow;
+        position: absolute;
+        top: 80%;
+        left: 83%;
+        display: none;
+    }
+
+    #logoSection {
+        position: absolute;
+        bottom: 6%;
+        margin-left: 5%
+    }
+}
+
+@media (min-width: 930px) and (max-width: 999px) {
+    #instructions {
+        height: 200px;
+        width: 580px;
+        padding: 0px;
+        position: absolute;
+        top: 73%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    #instructions>ul>li {
+        font-size: 15px;
+        padding-top: 2px;
+    }
+
+    #instructions>h1 {
+        font-size: 30px;
+    }
+
+    #count {
+        font-size: 25px;
+        color: yellow;
+        position: absolute;
+        top: 80%;
+        left: 84%;
+        display: none;
+    }
+
+    #logoSection {
+        position: absolute;
+        bottom: 6%;
+        margin-left: 3%
+    }
 }

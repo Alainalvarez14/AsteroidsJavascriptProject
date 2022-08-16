@@ -7,8 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" href="./dist/main.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;900&display=swap" rel="stylesheet">
     <script src="./dist/main.js"></script>
-    <title>Project Name</title>
+    <title>Asteroids Defence</title>
+    <link rel="icon" type="image/x-icon" href="src/images/SpaceShipSmall.png">
     <!-- <img src="./src/images/asteroidStart.jpg" alt=""> -->
 
 </head>
@@ -17,39 +21,36 @@
     <canvas id="canvas" width="900" height="700"></canvas>
     <!-- <canvas id="canvas2" width="900" height="700"></canvas> -->
 
-    <script type="module" src="./dist/main.js"></script>
-    <div id="startTitle"> ASTEROIDS ON ROIDS</div>
+    <!-- <script type="module" src="./dist/main.js"></script> -->
+    <div id="startTitle"> ASTEROIDS DEFENCE</div>
+
+
     <div id="startGame">
         <!-- <div id="startTitle"> ASTEROIDS ON ROIDS</div> -->
         <button id="startButton">
-            Click here to start
+            Start Game
         </button>
     </div>
 
     <div id="introduction">
         <div id="scroll">
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non in! Sapiente totam, magnam
-                cupiditate culpa ipsum sunt. Cumque, id maiores a consequuntur quibusdam, harum eaque tenetur veniam cum
-                ducimus ipsum maxime sapiente praesentium ex impedit dolorum delectus voluptatum? Ratione!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non in! Sapiente totam, magnam
-                cupiditate culpa ipsum sunt. Cumque, id maiores a consequuntur quibusdam, harum eaque tenetur veniam cum
-                ducimus ipsum maxime sapiente praesentium ex impedit dolorum delectus voluptatum? Ratione!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non in! Sapiente totam, magnam
-                cupiditate culpa ipsum sunt. Cumque, id maiores a consequuntur quibusdam, harum eaque tenetur veniam cum
-                ducimus ipsum maxime sapiente praesentium ex impedit dolorum delectus voluptatum? Ratione!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non in! Sapiente totam, magnam
-                cupiditate culpa ipsum sunt. Cumque, id maiores a consequuntur quibusdam, harum eaque tenetur veniam cum
-                ducimus ipsum maxime sapiente praesentium ex impedit dolorum delectus voluptatum? Ratione!</p>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat, non in! Sapiente totam, magnam
-                cupiditate culpa ipsum sunt. Cumque, id maiores a consequuntur quibusdam, harum eaque tenetur veniam cum
-                ducimus ipsum maxime sapiente praesentium ex impedit dolorum delectus voluptatum? Ratione!</p>
+            <p>Its been over ten thousand years since you and other brave heros have been defending the Earth from
+                imminent destruction. Many have perished while attempting to shield humanity from its inevitable fate.
+                Generations of space defenders have fallen, and you shall go down in history as the Earth's last space
+                defender.</p>
+            <p>Aware that a single collision with an asteroid would explode your ship, you look around for your fellow
+                space defenders. You notice that all the remaining space defenders have been destroyed by asteroids. The
+                only one left is you. You are planet Earth's only chance for survival.</p>
+            <p>Your mission is to defend the Earth from its inevitable destruction for as long as possible. The Earth
+                has shifted into a new and more dense asteroid belt and is constantly in the path of danger. Humanity is
+                unaware of its fate. Keep them alive for the longest possible time at all costs.</p>
         </div>
     </div>
 
     <div id="instructions">
         <h1>How To Play</h1>
         <ul>
-            <li>press arrow keys to move up/down/left/right</li>
+            <li>Press arrow keys to move up/down/left/right</li>
             <li>Press R to rotate right</li>
             <li>Press L to rotate left</li>
             <li>Press spacebar to shoot laser</li>
@@ -66,15 +67,23 @@
 
     <div id="gameOver">
         <div id="gameOverText">
-            Game Over
+            GAME OVER
         </div>
 
         <button id="playAgainButton">
-            Play Again?
+            Play Again
         </button>
 
     </div>
 
+    <div id="logoSection">
+        <a href="google.com">
+            <img id="gitHub" src="src/images/GitHub-Mark-32px.png" alt="">
+        </a>
+        <a href="linkedin.com">
+            <img id="linkedIn" src="src/images/LI-In-Bug.png" alt="">
+        </a>
+    </div>
 
 </body>
 

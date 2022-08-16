@@ -17,7 +17,7 @@ class Game {
         this.startGame();
         this.eventListeners();
         this.counter = 0;
-        this.gameCount = 1;
+        // this.gameCount = 1;
     }
 
     startGame() {
@@ -33,10 +33,8 @@ class Game {
         this.spaceShip.keyDown(e);
 
         if (e.key === "p") {
-            // console.log("before" + this.gamePause);
             // this.gamePause = !this.gamePause;
             this.gamePause = true;
-            // console.log("after" + this.gamePause);
             const pausedText = document.getElementById('pausedText');
             const restartButton = document.getElementById('restartButton');
             const resumeGameButton = document.getElementById('resumeGameButton');
@@ -58,11 +56,23 @@ class Game {
             pausedText.style.display = "none";
             resumeGameButton.style.display = "none";
             restartButton.style.display = "none";
-            const canvas = document.getElementById('canvas');
-            this.gameCount++;
-            console.log(this.gameCount);
-            new Game(canvas);
+            // this.gameCount++;
+            // console.log(this.gameCount);
+            this.restart();
         });
+    }
+
+    restart() {
+        this.spaceShip = new Spaceship(this.dimensions, this.canvas);
+        this.frames = 0;
+        this.asteroidArr = [];
+        this.count = 0;
+        this.divisor = 30;
+        this.previousCount = 0;
+        this.gameOver = false;
+        this.gamePause = false;
+        // this.startGame();
+        // this.eventListeners();
     }
 
     keyUp(e) {
@@ -75,14 +85,12 @@ class Game {
             if (this.previousCount !== this.count) {
                 this.previousCount = this.count
                 this.divisor -= 5;
-                console.log(this.divisor);
             }
         }
 
         if (this.frames % this.divisor === 0) {
             let asteroid = new Asteroids(this.dimensions);
             this.asteroidArr.push(asteroid);
-            console.log(asteroid)
         }
         for (let i = 0; i < this.asteroidArr.length; i++) {
             this.asteroidArr[i].animate(this.ctx);
@@ -104,8 +112,6 @@ class Game {
                     console.log(this.spaceShip.x);
                     console.log(this.spaceShip.y);
                     this.asteroidArr.splice(i, 1);
-                    this.counter += 1;
-                    console.log(this.counter)
                     const endGame = document.getElementById('gameOver');
                     endGame.style.display = "block";
                     this.gameOver = true;
@@ -125,12 +131,11 @@ class Game {
                     let sumRadius = this.asteroidArr[i].circleRadius + this.spaceShip.lasersArr[j].circleRadius
 
                     if (sumRadius >= distance) {
-                        // console.log(this.spaceShip.lasersArr);
                         this.asteroidArr.splice(i, 1);
                         this.spaceShip.lasersArr.splice(j, 1);
+                        i--;
+                        j--;
                         this.count++;
-                        console.log(this.count);
-                        // console.log(this.spaceShip.lasersArr);
                     }
                 }
             }
