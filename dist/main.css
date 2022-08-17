@@ -44,7 +44,7 @@ body {
   font-size: 22px;
   line-height: 1.5;
   position: absolute;
-  animation: scroll 180s linear forwards;
+  animation: scroll 195s linear forwards;
 }
 
 @keyframes scroll {
