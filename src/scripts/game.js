@@ -17,7 +17,6 @@ class Game {
         this.startGame();
         this.eventListeners();
         this.counter = 0;
-        // this.gameCount = 1;
     }
 
     startGame() {
@@ -33,7 +32,6 @@ class Game {
         this.spaceShip.keyDown(e);
 
         if (e.key === "p") {
-            // this.gamePause = !this.gamePause;
             this.gamePause = true;
             const pausedText = document.getElementById('pausedText');
             const restartButton = document.getElementById('restartButton');
@@ -47,17 +45,13 @@ class Game {
             pausedText.style.display = "none";
             resumeGameButton.style.display = "none";
             restartButton.style.display = "none";
-            // this.gamePause = !this.gamePause;
             this.gamePause = false;
         });
 
-        ///////im not sure if its restarting correctly, my console.log is wonky
         restartButton.addEventListener('click', e => {
             pausedText.style.display = "none";
             resumeGameButton.style.display = "none";
             restartButton.style.display = "none";
-            // this.gameCount++;
-            // console.log(this.gameCount);
             this.restart();
         });
     }
@@ -71,8 +65,6 @@ class Game {
         this.previousCount = 0;
         this.gameOver = false;
         this.gamePause = false;
-        // this.startGame();
-        // this.eventListeners();
     }
 
     keyUp(e) {
@@ -106,11 +98,6 @@ class Game {
                 let sumRadius = this.asteroidArr[i].circleRadius + this.spaceShip.circleRadius
 
                 if (sumRadius >= distance) {
-                    console.log(`distance ${distance}`);
-                    console.log(`sumRadius ${sumRadius}`);
-                    console.log(this.asteroidArr[i]);
-                    console.log(this.spaceShip.x);
-                    console.log(this.spaceShip.y);
                     this.asteroidArr.splice(i, 1);
                     const endGame = document.getElementById('gameOver');
                     endGame.style.display = "block";

@@ -149,7 +149,7 @@ class Game {
     this.gamePause = false;
     this.startGame();
     this.eventListeners();
-    this.counter = 0; // this.gameCount = 1;
+    this.counter = 0;
   }
 
   startGame() {
@@ -165,7 +165,6 @@ class Game {
     this.spaceShip.keyDown(e);
 
     if (e.key === "p") {
-      // this.gamePause = !this.gamePause;
       this.gamePause = true;
       const pausedText = document.getElementById('pausedText');
       const restartButton = document.getElementById('restartButton');
@@ -178,17 +177,13 @@ class Game {
     resumeGameButton.addEventListener('click', e => {
       pausedText.style.display = "none";
       resumeGameButton.style.display = "none";
-      restartButton.style.display = "none"; // this.gamePause = !this.gamePause;
-
+      restartButton.style.display = "none";
       this.gamePause = false;
-    }); ///////im not sure if its restarting correctly, my console.log is wonky
-
+    });
     restartButton.addEventListener('click', e => {
       pausedText.style.display = "none";
       resumeGameButton.style.display = "none";
-      restartButton.style.display = "none"; // this.gameCount++;
-      // console.log(this.gameCount);
-
+      restartButton.style.display = "none";
       this.restart();
     });
   }
@@ -201,8 +196,7 @@ class Game {
     this.divisor = 30;
     this.previousCount = 0;
     this.gameOver = false;
-    this.gamePause = false; // this.startGame();
-    // this.eventListeners();
+    this.gamePause = false;
   }
 
   keyUp(e) {
@@ -236,11 +230,6 @@ class Game {
         let sumRadius = this.asteroidArr[i].circleRadius + this.spaceShip.circleRadius;
 
         if (sumRadius >= distance) {
-          console.log("distance ".concat(distance));
-          console.log("sumRadius ".concat(sumRadius));
-          console.log(this.asteroidArr[i]);
-          console.log(this.spaceShip.x);
-          console.log(this.spaceShip.y);
           this.asteroidArr.splice(i, 1);
           const endGame = document.getElementById('gameOver');
           endGame.style.display = "block";
@@ -557,21 +546,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const introduction = document.getElementById('introduction');
   const playAgainButton = document.getElementById('playAgainButton');
   const gameOver = document.getElementById('gameOver');
-  const instructions = document.getElementById('instructions'); // const skipIntro = document.getElementById('skip-intro-button');
-
+  const gameOverImg = document.getElementById('gameOverImg');
+  const instructions = document.getElementById('instructions');
   setTimeout(() => {
     introduction.style.display = "none";
     startGame.style.display = "block";
     startButton.style.display = "block";
-    instructions.style.display = "block"; // skipIntro.style.display = "none";
-  }, 30500); // skipIntro.addEventListener("click", e => {
-  //     introduction.style.display = "none";
-  //     startGame.style.display = "block";
-  //     startButton.style.display = "block";
-  //     instructions.style.display = "block";
-  //     skipIntro.style.display = "none";
-  // });
-
+    instructions.style.display = "block";
+  }, 30500);
   startButton.addEventListener("click", e => {
     startGame.style.display = "none";
     startButton.style.display = "none";
@@ -581,6 +563,7 @@ document.addEventListener('DOMContentLoaded', () => {
   });
   playAgainButton.addEventListener('click', e => {
     gameOver.style.display = "none";
+    gameOverImg.style.display = "none";
     count.style.display = "block";
     canvas.style.display = "block";
     new _scripts_game__WEBPACK_IMPORTED_MODULE_0__["default"](canvas);

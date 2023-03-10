@@ -8,24 +8,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const introduction = document.getElementById('introduction');
     const playAgainButton = document.getElementById('playAgainButton');
     const gameOver = document.getElementById('gameOver');
+    const gameOverImg = document.getElementById('gameOverImg');
     const instructions = document.getElementById('instructions');
-    // const skipIntro = document.getElementById('skip-intro-button');
 
     setTimeout(() => {
         introduction.style.display = "none";
         startGame.style.display = "block";
         startButton.style.display = "block";
         instructions.style.display = "block";
-        // skipIntro.style.display = "none";
     }, 30500)
-
-    // skipIntro.addEventListener("click", e => {
-    //     introduction.style.display = "none";
-    //     startGame.style.display = "block";
-    //     startButton.style.display = "block";
-    //     instructions.style.display = "block";
-    //     skipIntro.style.display = "none";
-    // });
 
     startButton.addEventListener("click", e => {
         startGame.style.display = "none";
@@ -37,6 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     playAgainButton.addEventListener('click', e => {
         gameOver.style.display = "none";
+        gameOverImg.style.display = "none";
         count.style.display = "block";
         canvas.style.display = "block";
         new Game(canvas);

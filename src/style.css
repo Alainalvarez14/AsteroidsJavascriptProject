@@ -262,6 +262,7 @@ body {
     font-weight: bold;
     color: red;
     background-color: lightgray;
+    /* z-index: 99999999999; */
 }
 
 #gitHub {
