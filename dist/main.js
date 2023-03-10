@@ -244,6 +244,11 @@ class Game {
           this.asteroidArr.splice(i, 1);
           const endGame = document.getElementById('gameOver');
           endGame.style.display = "block";
+          setTimeout(() => {
+            endGame.style.display = "none";
+            const endGameImg = document.getElementById('gameOverImg');
+            endGameImg.style.display = "block";
+          }, [1500]);
           this.gameOver = true;
         }
       }
@@ -552,13 +557,21 @@ document.addEventListener('DOMContentLoaded', () => {
   const introduction = document.getElementById('introduction');
   const playAgainButton = document.getElementById('playAgainButton');
   const gameOver = document.getElementById('gameOver');
-  const instructions = document.getElementById('instructions');
+  const instructions = document.getElementById('instructions'); // const skipIntro = document.getElementById('skip-intro-button');
+
   setTimeout(() => {
     introduction.style.display = "none";
     startGame.style.display = "block";
     startButton.style.display = "block";
-    instructions.style.display = "block";
-  }, 500);
+    instructions.style.display = "block"; // skipIntro.style.display = "none";
+  }, 30500); // skipIntro.addEventListener("click", e => {
+  //     introduction.style.display = "none";
+  //     startGame.style.display = "block";
+  //     startButton.style.display = "block";
+  //     instructions.style.display = "block";
+  //     skipIntro.style.display = "none";
+  // });
+
   startButton.addEventListener("click", e => {
     startGame.style.display = "none";
     startButton.style.display = "none";

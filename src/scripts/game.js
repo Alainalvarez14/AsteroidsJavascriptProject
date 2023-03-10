@@ -114,6 +114,11 @@ class Game {
                     this.asteroidArr.splice(i, 1);
                     const endGame = document.getElementById('gameOver');
                     endGame.style.display = "block";
+                    setTimeout(() => {
+                        endGame.style.display = "none";
+                        const endGameImg = document.getElementById('gameOverImg');
+                        endGameImg.style.display = "block";
+                    }, [1500]);
                     this.gameOver = true;
                 }
             }
