@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         startGame.style.display = "block";
         startButton.style.display = "block";
         instructions.style.display = "block";
-    }, 30500)
+    }, 500)
 
     startButton.addEventListener("click", e => {
         startGame.style.display = "none";
