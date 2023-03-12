@@ -151,6 +151,7 @@ class Game {
         }
         requestAnimationFrame(this.animate.bind(this));
     }
+
 }
 
 export default Game;

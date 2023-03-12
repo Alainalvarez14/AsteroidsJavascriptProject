@@ -547,12 +547,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const playAgainButton = document.getElementById('playAgainButton');
   const gameOver = document.getElementById('gameOver');
   const gameOverImg = document.getElementById('gameOverImg');
-  const instructions = document.getElementById('instructions');
   setTimeout(() => {
     introduction.style.display = "none";
     startGame.style.display = "block";
-    startButton.style.display = "block";
-    instructions.style.display = "block";
+    startButton.style.display = "block"; // instructions.style.display = "block";
+    // instructionsDropdown.display = "block"
   }, 500);
   startButton.addEventListener("click", e => {
     startGame.style.display = "none";
