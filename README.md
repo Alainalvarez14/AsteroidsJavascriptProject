@@ -2,12 +2,12 @@
 
 Built With:
 
-HTML5
-CSS3
-Javascript
-Git
-Github
-Npm
+- HTML5
+- CSS3
+- Javascript
+- Git
+- Github
+- Npm
 
 
 Start Screen:
