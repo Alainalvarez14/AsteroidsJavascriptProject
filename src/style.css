@@ -586,6 +586,13 @@ body {
     }
 }
 
+@media (max-height: 795px) {
+    #startTitle {
+        display: none !important;
+    }
+}
+
+
 /*
 @media (max-width: 1050px) {
 
