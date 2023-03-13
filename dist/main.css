@@ -529,7 +529,7 @@ body {
     font-size: 30px;
   }
 }
-@media (max-height: 790px) {
+@media (max-height: 795px) {
   #startTitle {
     display: none !important;
   }

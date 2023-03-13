@@ -552,7 +552,7 @@ document.addEventListener('DOMContentLoaded', () => {
     startGame.style.display = "block";
     startButton.style.display = "block"; // instructions.style.display = "block";
     // instructionsDropdown.display = "block"
-  }, 500);
+  }, 30500);
   startButton.addEventListener("click", e => {
     startGame.style.display = "none";
     startButton.style.display = "none";
